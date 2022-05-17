@@ -7,7 +7,8 @@ class SpindlerBattery(Battery, ABC):
         self.current_date = current_date
 
     def battery_needs_service(self):
-        if (self.current_date - self.last_service_date) >= 730:
+        date = self.current_date - self.last_service_date
+        if (date.days) >= 730:
             return True
         else:
             return False 

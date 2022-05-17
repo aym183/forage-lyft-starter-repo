@@ -1,5 +1,24 @@
 import unittest
 from datetime import datetime
+from model.calliope import Calliope
+from model.glissade import Glissade
+from model.palindrome import Palindrome
+from model.rorschach import Rorschach
+from model.thovex import Thovex
+
+class TestCalliope(unittest.TestCase):
+    def test_battery_should_be_serviced(self):
+        today = datetime.today().date()
+        last_service_date = today.replace(year=today.year - 3)
+        current_mileage = 0
+        last_service_mileage = 0
+
+        car = Calliope(current_mileage, last_service_mileage, last_service_date, today)
+        self.assertTrue(car.service_check())
+
+if __name__ == '__main__':
+    unittest.main()
+
 
 # from engine.model.calliope import Calliope
 # from engine.model.glissade import Glissade
@@ -182,7 +201,3 @@ from datetime import datetime
 
 #         car = Thovex(last_service_date, current_mileage, last_service_mileage)
 #         self.assertFalse(car.needs_service())
-
-
-# if __name__ == '__main__':
-#     unittest.main()
