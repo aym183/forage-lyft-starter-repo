@@ -160,8 +160,8 @@ class TestThovex(unittest.TestCase):
         current_mileage = 0
         last_service_mileage = 0
 
-        car = Thovex(last_service_date, current_mileage, last_service_mileage)
-        self.assertTrue(car.needs_service())
+        car = Thovex(current_mileage, last_service_mileage, last_service_date, today)
+        self.assertTrue(car.service_check())
 
     def test_battery_should_not_be_serviced(self):
         today = datetime.today().date()
@@ -169,24 +169,26 @@ class TestThovex(unittest.TestCase):
         current_mileage = 0
         last_service_mileage = 0
 
-        car = Thovex(last_service_date, current_mileage, last_service_mileage)
-        self.assertFalse(car.needs_service())
+        car = Thovex(current_mileage, last_service_mileage, last_service_date, today)
+        self.assertFalse(car.service_check())
 
     def test_engine_should_be_serviced(self):
         last_service_date = datetime.today().date()
+        today = datetime.today().date()
         current_mileage = 30001
         last_service_mileage = 0
 
-        car = Thovex(last_service_date, current_mileage, last_service_mileage)
-        self.assertTrue(car.needs_service())
+        car = Thovex(current_mileage, last_service_mileage, last_service_date, today)
+        self.assertTrue(car.service_check())
 
     def test_engine_should_not_be_serviced(self):
         last_service_date = datetime.today().date()
+        today = datetime.today().date()
         current_mileage = 30000
         last_service_mileage = 0
 
-        car = Thovex(last_service_date, current_mileage, last_service_mileage)
-        self.assertFalse(car.needs_service())
+        car = Thovex(current_mileage, last_service_mileage, last_service_date, today)
+        self.assertFalse(car.service_check())
 
 
 if __name__ == '__main__':
