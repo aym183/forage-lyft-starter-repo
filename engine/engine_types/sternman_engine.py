@@ -8,10 +8,7 @@ class SternmanEngine(Engine, ABC):
         self.warning_light_is_on = warning_light_is_on
 
     def needs_service(self):
-        pass
-
-    # def engine_should_be_serviced(self):
-    #     if self.warning_light_is_on:
-    #         return True
-    #     else:
-    #         return False
+        if self.warning_light_is_on:
+            return True
+        else:
+            return False
