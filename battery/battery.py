@@ -1,5 +1,5 @@
 from abc import ABC
 
 class Battery(ABC):
-    def needs_service(self):
+    def battery_needs_service(self):
         pass
