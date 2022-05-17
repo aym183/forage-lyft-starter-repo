@@ -92,7 +92,7 @@ class TestPalindrome(unittest.TestCase):
 
     def test_battery_should_not_be_serviced(self):
         today = datetime.today().date()
-        last_service_date = today.replace(year=today.year - 3)
+        last_service_date = today.replace(year=today.year - 1)
         warning_light_is_on = False
 
         car = Palindrome(warning_light_is_on, last_service_date, today)
@@ -127,7 +127,7 @@ class TestRorschach(unittest.TestCase):
 
     def test_battery_should_not_be_serviced(self):
         today = datetime.today().date()
-        last_service_date = today.replace(year=today.year - 3)
+        last_service_date = today.replace(year=today.year - 1)
         current_mileage = 0
         last_service_mileage = 0
 
