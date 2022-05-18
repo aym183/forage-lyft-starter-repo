@@ -8,7 +8,7 @@ class OctoprimeTyres(Tyre, ABC):
     def tyre_needs_service(self):
         for i in self.tyres_array:
             if i < 0 or i > 1:
-                return "Invalid"
+                return False
         if sum(self.tyres_array) >= 3:
             return True
         else:

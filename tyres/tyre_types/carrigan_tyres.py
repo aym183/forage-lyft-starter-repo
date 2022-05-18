@@ -8,8 +8,8 @@ class CarriganTyres(Tyre, ABC):
     def tyre_needs_service(self):
         for i in self.tyres_array:
             if i < 0 or i > 1:
-                return "Invalid"
-            elif i>= 0.9:
+                return False
+            elif i >= 0.9:
                 return True
             else:
-                return False
+                pass
