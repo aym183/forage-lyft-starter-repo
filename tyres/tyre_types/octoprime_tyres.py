@@ -9,7 +9,7 @@ class OctoprimeTyres(Tyre, ABC):
         for i in self.tyres_array:
             if i < 0 or i > 1:
                 return "Invalid"
-            elif i>= 0.9:
-                return True
-            else:
-                return False
+        if sum(self.tyres_array) >= 3:
+            return True
+        else:
+            return False
